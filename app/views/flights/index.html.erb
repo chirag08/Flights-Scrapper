@@ -1,0 +1,102 @@
+	<div class="wrapper">
+        <i class="ion-android-plane plane"></i>
+        <i class="ion-android-plane plane"></i>
+        <h1 class="loading">Searching for flights</h1>
+    </div>
+
+
+<div class="container">
+	<div class="card-panel green accent-2">
+		<h3 class="center-align">Search Flights Now!!</h3>
+  		<div class="row">
+      		<%= form_tag(controller: "flights", action: "search", method: "get", class: "col l12") do %>
+      		<div class="input-field col l6">
+          			
+      			   <%= text_field_tag(:from) %>
+      			   <%= label_tag(:from, "From :") %>
+        	</div>
+      			<div class="input-field col l6">
+          			
+      			   <%= text_field_tag(:to) %>
+      			   <%= label_tag(:to, "To :") %>
+        	</div>
+        </div>
+     
+        <div class="row">
+      		<div class="input-field col l6">
+      				
+      			   <%= date_field_tag 'date', '01/01/2015' , placeholder: 'Date' %>
+      			   
+        	</div>
+      			<div class="input-field col l3">	
+      			 	<select id="adults">
+   				    	<option value="" disabled selected>No. of Adults</option>
+  				    	<option value="1">1</option>
+  				    	<option value="2">2</option>
+   				   		<option value="3">3</option>
+  			     	</select>
+  			    	 <%= label_tag(:adults, "Adults") %>
+        		</div>
+        			<div class="input-field col l3">	
+      			 	<select id="child">
+   				    	<option value="" disabled selected>No. of childeren</option>
+   				    	<option value="0">0</option>
+  				    	<option value="1">1</option>
+  				    	<option value="2">2</option>
+   				   		<option value="3">3</option>
+  			     	</select>
+  			    	 <%= label_tag(:adults, "Child") %>
+        			</div>
+        	  	
+        </div>	
+        		<br></br>
+				<br></br>
+
+        				<%= link_to "Search", "/flights/search", class: "btn-large waves-effect waves-light" %>
+    
+			 <% end %>
+		
+    </div>
+    <br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+		<br></br>
+	    <br></br>
+</div>
+
+
+<!--
+<div class="row card-panel green accent-2">
+    <form class="col l12">
+      <div class="row">
+        <div class=" input-field col l6">
+          <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col l6">
+          <input id="last_name" type="text" class="validate">
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col l12">
+          <input disabled value="I am not editable" id="disabled" type="text" class="validate">
+          <label for="disabled">Disabled</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col l12">
+          <input id="password" type="password" class="validate">
+          <label for="password">Password</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col l12">
+          <input id="email" type="email" class="validate">
+          <label for="email">Email</label>
+        </div>
+      </div>
+    </form>
+  </div>
+-->
