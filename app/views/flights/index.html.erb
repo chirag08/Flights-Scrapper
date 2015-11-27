@@ -9,14 +9,14 @@
 	<div class="card-panel green accent-2">
 		<h3 class="center-align">Search Flights Now!!</h3>
   		<div class="row">
-      		<%= form_tag(controller: "flights", action: "search", method: "get", class: "col l12") do %>
+      		<%= form_tag(flights_search_path, method: "get", class: "col l12") do %>
       		<div class="input-field col l6">
           			
       			   <%= text_field_tag(:from) %>
       			   <%= label_tag(:from, "From :") %>
         	</div>
       			<div class="input-field col l6">
-          			
+          				
       			   <%= text_field_tag(:to) %>
       			   <%= label_tag(:to, "To :") %>
         	</div>
@@ -28,18 +28,18 @@
       			   <%= date_field_tag 'date', '01/01/2015' , placeholder: 'Date' %>
       			   
         	</div>
-      			<div class="input-field col l3">	
-      			 	<select id="adults">
-   				    	<option value="" disabled selected>No. of Adults</option>
-  				    	<option value="1">1</option>
+      			<div class="input-field col l3">
+				  
+<%= select_tag "credit_card", options_for_select([ "VISA", "MasterCard" ], "MasterCard") %>
+				  <!--	<select id="adults" name="adults">
+  				    	<option value="1" selected>1</option>
   				    	<option value="2">2</option>
    				   		<option value="3">3</option>
-  			     	</select>
+  			     	</select> -->
   			    	 <%= label_tag(:adults, "Adults") %>
         		</div>
         			<div class="input-field col l3">	
-      			 	<select id="child">
-   				    	<option value="" disabled selected>No. of childeren</option>
+      			 	<select id="child" name="child">
    				    	<option value="0">0</option>
   				    	<option value="1">1</option>
   				    	<option value="2">2</option>
@@ -51,9 +51,7 @@
         </div>	
         		<br></br>
 				<br></br>
-
-        				<%= link_to "Search", "/flights/search", class: "btn-large waves-effect waves-light" %>
-    
+					<input class="btn-large" name="Search" type="submit" value="Search" />
 			 <% end %>
 		
     </div>

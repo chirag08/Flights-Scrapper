@@ -2,6 +2,10 @@ Rails.application.routes.draw do
   root 'flights#index'
 
   get 'flights/search'
+  get    'search'   => 'flights#search'
+
+   post 'flights/search'
+  post    'search'   => 'flights#search'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
