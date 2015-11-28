@@ -5,22 +5,25 @@ class FlightsController < ApplicationController
   	require 'json'
 require 'rest_client'
 require 'net/http'
+
   	@origin = params[:from]
   	@dest = params[:to]
   	@dep_date = params[:date]
   	@adult = params[:adults]
   	@child = params[:child]
   	
-
+@origin = @origin[0,3].upcase
+@dest = @dest[0,3].upcase
 
 org=@origin
 dest=@dest
-date="2016-01-21"
+date=@dep_date
 r_date="2016-01-19"
 solution=5
 adult=1
 child=0
 senior=0
+
 
 trip = "one way"
 
@@ -89,8 +92,8 @@ end
 @dep_time = Array.new(100) { Array.new(100) }
 @seg_org= Array.new(100) { Array.new(100) }
 @seg_dest = Array.new(100) { Array.new(100) }
-
-apikey= "AIzaSyB3XKN0B5Ui7QwIB8zlQ0tsFidCtPBpAZg"
+@flight_name = []
+apikey= " AIzaSyAlBNOeu68CyeS8c1xBiF-rew8gjqZv-NY "
 
 
 @response = RestClient.post "https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{apikey} ",
@@ -123,6 +126,13 @@ result["trips"]["tripOption"].each do |sol|
 		 sol["slice"][0]["segment"].each do |seg|
 
 	 			@flight_code[k][m] = sol["slice"][0]["segment"][m]["flight"]["carrier"]
+	 				
+	 				result["trips"]["data"]["carrier"].each do |x|
+	 					if @flight_code[k][m] == x["code"]
+	 						@flight_name[k]= x["name"]
+	 					end
+	 				end			
+
 				@flight_number[k][m] = sol["slice"][0]["segment"][m]["flight"]["number"]			
 				@cabin[k][m] = sol["slice"][0]["segment"][m]["cabin"]
 				@arr_time[k][m] = sol["slice"][0]["segment"][m]["leg"][0]["arrivalTime"]
@@ -136,6 +146,30 @@ result["trips"]["tripOption"].each do |sol|
 end
 
 @avail_sol=k
+
+citykey= "5acbf729-1e1a-469c-8f40-6899d7db5e80"
+
+
+response = RestClient.get "http://iatacodes.org/api/v4/cities?api_key=#{citykey}&code=#{@origin}"
+
+result = JSON.parse response
+@origin_city = ""
+result["response"].each do |i|
+	if i["code"] == @origin
+		@origin_city = i["name"]
+	end
+end
+
+response = RestClient.get "http://iatacodes.org/api/v4/cities?api_key=#{citykey}&code=#{@dest}"
+
+result = JSON.parse response
+@dest_city = ""
+result["response"].each do |i|
+	if i["code"] == @dest
+		@dest_city = i["name"]
+	end
+end
+
 =begin
 k=0
 

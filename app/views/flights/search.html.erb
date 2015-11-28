@@ -1,8 +1,15 @@
-<h1 class="center">Journey From <%= @origin  %> to <%= @dest %></h1>
+
+
+<div class="row">
+	<div class="col l10 offset-l1">
+		<h2 class="center card-panel hoverable blue-grey darken-1 white-text"> <i> Journey From <%= @origin_city  %> to <%= @dest_city %> </i> </h2>		
+	</div>
+	
+</div>
 
 
 
-Response code <%= @response.code %>
+
 <div class="container">
   <% k=0 %>
 	<% @avail_sol.times do %>
@@ -12,7 +19,7 @@ Response code <%= @response.code %>
             <div class="card-content white-text">
             	<div class="row">
             		<div class="col l6">
-            			<img src="/assets/airport10.png" alt="" class="responsive-img left"><h5 class="left">Flight Name</h5>            		
+            			<img src="/assets/airport10.png" alt="" class="responsive-img left"><h5 class="left"> <%= @flight_name[k] %> </h5>            		
             		</div>
             		<div class="col l6">
             			<h5 class="right">Price -<%= @price[k] %></h5>		
@@ -29,28 +36,18 @@ Response code <%= @response.code %>
             		<div class="col l8">
             				<div class="row">
             					<div class="col l4">
-            						<h4><%= @seg_org[k][m] %> </h4>            		
+            						<h4><%= @seg_org[k][m] %> </h4> 
+            						<p>Departure Time - <%= @dep_time[k][m] %> </p>           		
             					</div>
             					<div class="col l4">
             						<img src="/assets/agt_forward.png" alt="" class="responsive-img center"> 		
             					</div>
             					<div class="col l4">
-            					 	<h4> <%= @seg_dest[k][m] %>  </h4>		
+            					 	<h4> <%= @seg_dest[k][m] %>  </h4>	
+            					 	<p> Arrival Time - <%= @arr_time[k][m] %> </p>	
             					</div>
             				</div>
             	  		        <br>
-
-            	  		        <div class="row">
-            						<div class="col l4">
-            							<p>Departure Time - <%= @dep_time[k][m] %> </p>            		
-            						</div>
-            						<div class="col l4">
-            							<pre>                     </pre>
-            						</div>
-            						<div class="col l4">
-            							 <p> Arrival Time - <%= @arr_time[k][m] %> </p>		
-            						</div>
-								</div>
                    			   
             		</div>
             	</div>
@@ -69,7 +66,7 @@ Response code <%= @response.code %>
             
     <% k+=1 %>
   <% end %>
-	
+	<%= debug(params) %>
 </div>
 
 

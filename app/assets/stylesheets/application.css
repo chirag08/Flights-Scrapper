@@ -12,6 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ //= require jquery-ui/autocomplete
+ //= require jquery-ui
  */
  body{
  	overflow: auto;

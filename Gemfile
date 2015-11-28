@@ -8,6 +8,8 @@ gem 'mysql2', "~>0.3.11"
 
 gem 'rest-client', '~> 1.8.0'
 
+gem 'jquery-ui-rails'
+
 gem 'bootstrap-sass', '3.2.0.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

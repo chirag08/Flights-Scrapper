@@ -11,31 +11,24 @@
   		<div class="row">
       		<%= form_tag(flights_search_path, method: "get", class: "col l12") do %>
       		<div class="input-field col l6">
-          			
-      			   <%= text_field_tag(:from) %>
+      			   <%= text_field_tag :from, nil, id: 'autocomplete' %>
       			   <%= label_tag(:from, "From :") %>
         	</div>
       			<div class="input-field col l6">
           				
-      			   <%= text_field_tag(:to) %>
+      			   <%= text_field_tag :to, nil, id: 'autocomplete1' %>
       			   <%= label_tag(:to, "To :") %>
         	</div>
         </div>
      
         <div class="row">
       		<div class="input-field col l6">
-      				
-      			   <%= date_field_tag 'date', '01/01/2015' , placeholder: 'Date' %>
-      			   
+   				 <%= date_field_tag 'date', nil, class: 'datepicker' %>
+     			   
         	</div>
       			<div class="input-field col l3">
 				  
-<%= select_tag "credit_card", options_for_select([ "VISA", "MasterCard" ], "MasterCard") %>
-				  <!--	<select id="adults" name="adults">
-  				    	<option value="1" selected>1</option>
-  				    	<option value="2">2</option>
-   				   		<option value="3">3</option>
-  			     	</select> -->
+					<%= select_tag "Adults", options_for_select([ "1", "2" , "3", "4", "5" ], "1") %>
   			    	 <%= label_tag(:adults, "Adults") %>
         		</div>
         			<div class="input-field col l3">	
@@ -62,6 +55,7 @@
 		<br></br>
 	    <br></br>
 </div>
+
 
 
 <!--

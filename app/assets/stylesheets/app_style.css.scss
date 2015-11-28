@@ -1,7 +1,6 @@
 @import "materialize";
 @import url("http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css");
 
-
     
   /* Animation css */
 
@@ -9,6 +8,8 @@
 /* ********* Imports ********* */
 
 /* ********* Animation ********* */
+
+
 @keyframes fly {
   from {
     transform: translateY(300px) translateX(-999px) rotate(50deg);
@@ -23,6 +24,7 @@
     transform: translateY(999px) translateX(900px) rotate(140deg);
   }
 }
+
 @keyframes fly-opposite {
   from {
     transform: translateY(-300px) translateX(999px) rotate(230deg);
@@ -36,7 +38,8 @@
   to {
     transform: translateY(-999px) translateX(-900px) rotate(-10deg);
   }
-}
+} 
+
 @keyframes pulse {
   from {
     transform: scale(0.9);
@@ -51,6 +54,7 @@
     transform: scale(0.9);
   }
 }
+/*
 * {
   margin: 0;
   padding: 0;
@@ -63,7 +67,7 @@ html, body {
   height: 50%;
 
 }
-
+*/
 .wrapper {
   background-image: url('/assets/flight_bg.jpg');
   height: 50%;
@@ -103,7 +107,7 @@ html, body {
   position: absolute;
   top: 0;
   right: 50%;
-  bottom: 25%;
+  bottom: 40%;
   left: 0;
   width: 300px;
   height: 50px;

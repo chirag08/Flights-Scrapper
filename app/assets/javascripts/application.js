@@ -15,15 +15,61 @@
 //= require turbolinks
 //= require_tree .
 //= require materialize-sprockets 
+
+
 $(document).ready(function() {
     $('select').material_select();
 
     $('.datepicker').pickadate({
     selectMonths: true, // Creates a dropdown to control month
-    selectYears: 15 // Creates a dropdown of 15 years to control year
+    selectYears: 15, // Creates a dropdown of 15 years to control year
+    format: 'yyyy-mm-dd' 
   });
 
-    
+    var source = [
+    { name: 'New york', iata: 'JFK'},
+    { name: 'New Delhi Airport', iata: 'DEL'},
+    { name: 'Mumbai Aiport', iata: 'BOM'},
+    { name: 'Chandigarh Aiport', iata: 'IXC'},
+    {
+        "iata": "UTK",
+        "name": "Utirik Airport",
+    },
+    {
+        "iata": "FIV",
+        "name": "Five Finger CG Heliport",
+    },
+    {
+        "iata": "FOK",
+        "name": "False Island Seaplane Base",
+    },
+
+];
+
+    $( "#autocomplete" ).autocomplete({
+    source: function(request, response){
+        var searchTerm = request.term.toLowerCase();
+        var ret = [];
+        $.each(source, function(i, airportItem){
+            if (airportItem.iata.toLowerCase().indexOf(searchTerm) !== -1 || airportItem.name.toLowerCase().indexOf(searchTerm) === 0)
+                ret.push(airportItem.iata + ' - ' + airportItem.name);
+        });
+       
+        response(ret);
+    }
+});
+    $( "#autocomplete1" ).autocomplete({
+    source: function(request, response){
+        var searchTerm = request.term.toLowerCase();
+        var ret = [];
+        $.each(source, function(i, airportItem){
+            if (airportItem.iata.toLowerCase().indexOf(searchTerm) !== -1 || airportItem.name.toLowerCase().indexOf(searchTerm) === 0)
+                ret.push(airportItem.iata + ' - ' + airportItem.name);
+        });
+       
+        response(ret);
+    }
+});
 
   });
 
