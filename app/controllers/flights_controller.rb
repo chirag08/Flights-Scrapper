@@ -31,11 +31,7 @@ if trip == "one way" then
       {
         :origin => org,
         :destination => dest,
-        :date => date,
-        :prohibitedCarrier => [
-          "AI",
-         "9W"
-       ] 
+        :date => date
        # :maxStops => 0
       }
     ],
@@ -91,7 +87,8 @@ end
 @cabin= Array.new(100) { Array.new(100) }
 @arr_time = Array.new(100) { Array.new(100) }
 @dep_time = Array.new(100) { Array.new(100) }
-
+@seg_org= Array.new(100) { Array.new(100) }
+@seg_dest = Array.new(100) { Array.new(100) }
 
 apikey= "AIzaSyB3XKN0B5Ui7QwIB8zlQ0tsFidCtPBpAZg"
 
@@ -130,6 +127,8 @@ result["trips"]["tripOption"].each do |sol|
 				@cabin[k][m] = sol["slice"][0]["segment"][m]["cabin"]
 				@arr_time[k][m] = sol["slice"][0]["segment"][m]["leg"][0]["arrivalTime"]
 				@dep_time[k][m] = sol["slice"][0]["segment"][m]["leg"][0]["departureTime"]	
+				@seg_org[k][m] = sol["slice"][0]["segment"][m]["leg"][0]["origin"]
+				@seg_dest[k][m] = sol["slice"][0]["segment"][m]["leg"][0]["destination"]
 				m+=1		
 	 	 end
 
