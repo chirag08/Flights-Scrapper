@@ -19,7 +19,7 @@ org=@origin
 dest=@dest
 date=@dep_date
 r_date="2016-01-19"
-solution=5
+solution=20
 adult=1
 child=0
 senior=0
@@ -169,41 +169,6 @@ result["response"].each do |i|
 		@dest_city = i["name"]
 	end
 end
-
-=begin
-k=0
-
-@avail_sol.times do 
-
-puts "********************************************************************************************"
-			puts " Price => Rs. #{price[k]}"
-		 m=0
-		 segment_size[k].times do 
-					
-				puts " Segment #{m+1}                                                                      "
-				puts " #{org} to #{dest}                     #{flight_code[k][m]} #{flight_number[k][m]} \n"
-				puts " Cabin => #{cabin[k][m]}  "
-				puts " Departure time => #{dep_time[k][m]}            Arrival Time => #{arr_time[k][m]}    "	
-				m+=1		
-	 	 end
-
-
-puts "********************************************************************************************"
-			puts " "
-
-	k+=1
-end
-
-
-
-
-
-
-puts "Trips/Solutions - #{result["trips"]["tripOption"].size}"
-puts "Segments - #{result["trips"]["tripOption"][0]["slice"][0]["segment"].size}"
-=end
-
-
 
   end
 end

@@ -27,13 +27,9 @@ $(document).ready(function() {
   });
 
     var source = [
-    { name: 'New york', iata: 'JFK'},
-    { name: 'New Delhi Airport', iata: 'DEL'},
-    { name: 'Mumbai Aiport', iata: 'BOM'},
-    { name: 'Chandigarh Aiport', iata: 'IXC'},
     {
-        "iata": "UTK",
-        "name": "Utirik Airport",
+        "iata": "BOM",
+        "name": "Mumbai Airport",
     },
     {
         "iata": "FIV",
@@ -43,6 +39,12 @@ $(document).ready(function() {
         "iata": "FOK",
         "name": "False Island Seaplane Base",
     },
+    {
+        "iata": "DEL",
+        "name": "New Delhi",
+    }
+	    
+	    	        
 
 ];
 
