@@ -18,13 +18,14 @@ require 'net/http'
 org=@origin
 dest=@dest
 date=@dep_date
-r_date="2016-01-19"
+
+#r_date="2016-01-19"
 solution=20
 adult=1
 child=0
 senior=0
 
-
+urls=[]
 trip = "one way"
 
 if trip == "one way" then
@@ -93,7 +94,9 @@ end
 @seg_org= Array.new(100) { Array.new(100) }
 @seg_dest = Array.new(100) { Array.new(100) }
 @flight_name = []
-apikey= " AIzaSyAlBNOeu68CyeS8c1xBiF-rew8gjqZv-NY "
+apikey= " AIzaSyB_N9UqlXqX7eKpbK_0R1i3qnZG7awrKgU"
+tempkey= "AIzaSyAx7eaVmaIJwZZa8us5QDuzwjsLopJg5K0"
+
 
 
 @response = RestClient.post "https://www.googleapis.com/qpxExpress/v1/trips/search?key=#{apikey} ",
@@ -107,6 +110,12 @@ result = JSON.parse @response
 
 @segment_size= []
 count=0
+
+
+@abc = result["trips"]["data"].has_key?("airport")
+
+if @abc == true then
+
 result["trips"]["tripOption"].each do |sol|
 
      @segment_size[count] = sol["slice"][0]["segment"].size
@@ -171,4 +180,7 @@ result["response"].each do |i|
 end
 
   end
+end
+
+
 end

@@ -25,6 +25,8 @@ $(document).ready(function() {
     selectYears: 15, // Creates a dropdown of 15 years to control year
     format: 'yyyy-mm-dd' 
   });
+    $('.materialboxed').materialbox();
+    
 
     var source = [
     {
@@ -33,7 +35,7 @@ $(document).ready(function() {
     },
     {
         "iata": "FIV",
-        "name": "Five Finger CG Heliport",
+        "name": "New York",
     },
     {
         "iata": "FOK",
@@ -42,8 +44,51 @@ $(document).ready(function() {
     {
         "iata": "DEL",
         "name": "New Delhi",
-    }
-	    
+    },
+    {
+    	"iata": "DEL",
+        "name": "New Delhi",
+    }, 
+    {
+    	"iata":"GOI",
+    	"name":"GOA Airport",
+    },
+     {
+    	"iata":"IXC",
+    	"name":"Chandigarh Airport",
+    },
+     {
+    	"iata":"BEL",
+    	"name":"Brazil - Belen",
+    },
+     {
+    	"iata":"BLR",
+    	"name":"Banglore",
+    },
+    {
+    	"iata":"HYD",
+    	"name":"Rajiv Gandhi International Airport Hyderabad International Airport",
+    },
+    {
+    	"iata":"PAB",
+    	"name":"Bilaspur Airport",
+    },
+    {
+    	"iata":"AMD",
+    	"name":"AMD Sardar Vallabhbhai Patel International Airport Gandhinagar Air Force Station",
+    },
+    {
+    	"iata":"IXJ",
+    	"name":"Jammu Airport",
+    },
+    {
+    	"iata":"COK",
+    	"name":"Cochin International Airport Nedumbassery Airport",
+    },
+    {
+    	"iata":"MAA",
+    	"name":"Chennai Airport",
+    }  
 	    	        
 
 ];
@@ -59,7 +104,7 @@ $(document).ready(function() {
        
         response(ret);
     }
-});
+});	
     $( "#autocomplete1" ).autocomplete({
     source: function(request, response){
         var searchTerm = request.term.toLowerCase();
@@ -72,6 +117,7 @@ $(document).ready(function() {
         response(ret);
     }
 });
+
 
   });
 

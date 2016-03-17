@@ -1,12 +1,14 @@
+
+    <div id="wrap-body">
 	<div class="wrapper">
         <i class="ion-android-plane plane"></i>
         <i class="ion-android-plane plane"></i>
         <h1 class="loading">Searching for flights</h1>
     </div>
 
-
-<div class="container">
-	<div class="card-panel green accent-2">
+ 
+  <div class="container">
+	<div class="card-panel z-depth-5  green accent-2">
 		<h3 class="center-align">Search Flights Now!!</h3>
   		<div class="row">
       		<%= form_tag(flights_search_path, method: "get", class: "col l12") do %>
@@ -23,7 +25,7 @@
         <div class="row">
       		<div class="input-field col l6">
    				 <%= date_field_tag 'date', nil, class: 'datepicker' %>
-     			   
+ 
         	</div>
       			<div class="input-field col l3">
 				  
@@ -37,7 +39,7 @@
   				    	<option value="2">2</option>
    				   		<option value="3">3</option>
   			     	</select>
-  			    	 <%= label_tag(:adults, "Child") %>
+  			    	 <%= label_tag(:child, "Child") %>
         			</div>
         	  	
         </div>	
@@ -53,7 +55,11 @@
 		<br></br>
 		<br></br>
 	    <br></br>
+  </div>
+	
+
 </div>
+	
 
 
 
